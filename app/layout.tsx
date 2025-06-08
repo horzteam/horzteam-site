@@ -8,6 +8,7 @@ import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { Toaster } from "@/components/ui/toaster"
 import { GoogleAnalytics } from "./google-analytics"
+import { Suspense } from "react"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -35,7 +36,9 @@ export default function RootLayout({
             <Toaster />
           </LanguageProvider>
         </ThemeProvider>
-        <GoogleAnalytics measurementId="G-HZR1817TCH" />
+        <Suspense fallback={null}>
+          <GoogleAnalytics measurementId="G-HZR1817TCH" />
+        </Suspense>
       </body>
     </html>
   )
